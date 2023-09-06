@@ -1,0 +1,135 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.header{
+  @apply font-bold md:font-extrabold text-[2rem] md:text-5xl text-center leading-9;
+};
+.header-1{
+  @apply bg-[url('/netflix-img/images/NG-en-20230814-popsignuptwoweeks-perspective_alpha_website_small.jpg')] bg-center text-white relative p-6 sm:px-8 bg-dim ;
+};
+.floating-input{
+  @apply w-full sm:w-[57%] md:w-96 border border-neutral-400 bg-input rounded p-3 sm:p-3.5 text-lg font-medium sm:font-normal placeholder-neutral-400;
+}; 
+.error{
+  @apply text-red text-sm text-left;
+}
+.button{
+  @apply bg-red cursor-pointer hover:bg-red2 ml-2 mt-6 px-4 sm:px-6 sm:py-[0.79rem] py-2 text-lg sm:text-2xl font-medium rounded text-center sm:-mt-0;
+};
+.text,
+.texts{
+ @apply font-medium text-lg  md:text-2xl text-center mt-4 px-3;
+};
+.texts{
+  @apply lg:text-center;
+};
+.text{
+@apply md:text-[1.25rem] md:font-medium;
+};
+section,
+.footer{
+  @apply bg-black text-white mt-2 py-[4.5rem];
+};
+section{
+  @apply flex flex-col items-center  md:grid grid-cols-2 md:gap-0 md:px-8 xl:px-32 xxl:px-[168px] 2xl:px-44 3xl:px-[182px] 4xl:px-[570px];
+};
+.form{
+  @apply  flex flex-col sm:flex-row justify-center items-center text-center p-8 sm:pt-3 -mb-4 sm:mb-6;
+};
+.img{
+  @apply p-6 md:p-0 sm:w-[640px] md:w-[27.63rem] lg:w-[28rem] xl:w-[30rem] 2xl:w-[38rem] 3xl:w-[45rem] 4xl:w-[60rem];
+};
+.fag{
+  @apply mb-2 bg-gray hover:bg-[#414141] active:bg-[#414141] cursor-pointer p-6;
+};
+ /* .fag-texts{
+  @apply  ;
+}; */
+.fag-text,
+.fag-texts{
+@apply font-medium text-[1.1rem] leading-6 md:text-2xl;
+};
+.fag-text{
+  @apply -mt-[0.376rem] mb-2 bg-gray p-6 hidden;
+};
+.fag-block{
+  @apply block;
+};
+.plus,
+.close{
+  @apply float-right w-4 mt-1 md:w-[2.3rem] ;
+};
+.close{
+  @apply hidden;
+};
+a{
+  @apply underline  active:text-red w-fit h-fit;
+};
+.a{
+  @apply no-underline  active:text-milk w-fit h-fit;
+};
+.home-a{
+  @apply no-underline hover:underline text-[0.83rem] leading-8
+}
+.input-container:hover{
+  @apply border-solid border-[2px] rounded-md p-0.5 w-full;
+};
+.input{
+  box-sizing: border-box;
+  outline: none;
+}
+.header-1::before{
+  content: '';
+  background-color: black;
+ opacity: 0.7; 
+   position: absolute;
+   inset: 0;
+};
+.check{
+  @apply bg-green-500
+};
+.nav{
+transition-timing-function: ease-in;
+transition: all 0.5s;
+};
+.navs p,
+.navs img{
+  @apply cursor-pointer;
+}
+.home-section-with-images{
+  @apply mt-5 mb-6 bg-transparent py-0 flex flex-col px-0 w-screen items-start;
+}
+.home-section-with-images h4{
+  @apply  font-medium text-xs md:text-base mb-1.5;
+};
+.img-scroll,
+.first-img-scroll{
+  @apply  flex space-x-[0.6mm]  overflow-y-hidden overflow-x-scroll  overscroll-x-contain object-cover snap-mandatory ;
+};
+.img-scroll::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.first-img-scroll::-webkit-scrollbar{
+  @apply hidden;
+};
+.img-scroll img,
+.first-img-scroll img{
+  @apply  w-full 4xl:w-[30rem] 4xl:h-72 max-h-[100px] md:max-h-36 snap-start;
+};
+.nav-black{
+  @apply bg-black;
+};
+.img-scroll img:hover,
+.first-img-scroll img:hover{
+ transition: transform 450ms;
+ transform: scale(1.01);
+ display: flex;
+ gap: 0.9mm;
+};
+.black{
+  margin-top: -2rem;
+  background-image: linear-gradient(180deg,transparent, rgb(37, 37, 37, 0.61), black);
+};
