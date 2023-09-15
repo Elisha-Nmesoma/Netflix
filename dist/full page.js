@@ -4,12 +4,12 @@
 //     if (mediaQuery.matches) {
 //         firstScroll.style.marginLeft = '-2rem';
 //       }else{
-//         firstScroll.style.marginLeft = '-1rem';
+//         firstScroll.style.marginLeft = '-1rem;
 //       }
 // });
 
 // const imageContainers = document.querySelectorAll('.img-scroll');
-// let activeContainer = null;
+// let activeContainer = null
 // imageContainers.forEach(container =>{
 //  container.addEventListener('scroll', ()=>{
 
