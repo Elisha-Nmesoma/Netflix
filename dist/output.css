@@ -630,6 +630,10 @@ video {
   bottom: -1.5rem;
 }
 
+.-top-0 {
+  top: -0px;
+}
+
 .left-2 {
   left: 0.5rem;
 }
@@ -646,12 +650,12 @@ video {
   left: 1rem;
 }
 
-.top-1 {
-  top: 0.25rem;
+.top-0 {
+  top: 0px;
 }
 
-.top-4 {
-  top: 1rem;
+.top-1 {
+  top: 0.25rem;
 }
 
 .top-7 {
@@ -660,10 +664,6 @@ video {
 
 .top-\[0\.6rem\] {
   top: 0.6rem;
-}
-
-.top-0 {
-  top: 0px;
 }
 
 .isolate {
@@ -686,12 +686,8 @@ video {
   z-index: 30;
 }
 
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
-
-.col-span-1 {
-  grid-column: span 1 / span 1;
+.z-40 {
+  z-index: 40;
 }
 
 .float-right {
@@ -774,8 +770,8 @@ video {
   margin-left: 0.75rem;
 }
 
-.ml-4 {
-  margin-left: 1rem;
+.ml-6 {
+  margin-left: 1.5rem;
 }
 
 .mr-\[0\.07mm\] {
@@ -866,10 +862,6 @@ video {
   height: 330px;
 }
 
-.h-\[4\%\] {
-  height: 4%;
-}
-
 .h-auto {
   height: auto;
 }
@@ -951,8 +943,9 @@ video {
   width: 100vw;
 }
 
-.w-auto {
-  width: auto;
+.min-w-min {
+  min-width: -moz-min-content;
+  min-width: min-content;
 }
 
 .flex-grow {
@@ -989,10 +982,6 @@ video {
 
 .justify-between {
   justify-content: space-between;
-}
-
-.gap-6 {
-  gap: 1.5rem;
 }
 
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
@@ -1095,22 +1084,14 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.object-cover {
-  -o-object-fit: cover;
-     object-fit: cover;
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .object-left-top {
   -o-object-position: left top;
      object-position: left top;
-}
-
-.p-1 {
-  padding: 0.25rem;
-}
-
-.p-0 {
-  padding: 0px;
 }
 
 .px-0 {
@@ -1206,10 +1187,6 @@ video {
 
 .pb-\[60px\] {
   padding-bottom: 60px;
-}
-
-.pl-4 {
-  padding-left: 1rem;
 }
 
 .pl-6 {
@@ -1789,11 +1766,45 @@ a:active {
   cursor: pointer;
 }
 
+.handle {
+  z-index: 10;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  width: 0.5rem;
+  background-color: rgb(0 0 0 / 40%);
+}
+
+.handle:hover {
+  background-color: rgb(0 0 0 / 40%);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.right-handle {
+  border-radius: 0.25rem;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.left-handle {
+  border-radius: 0.25rem;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.img-scroll-container:hover .left-handle::after{
+  content: \2039;
+};
+
+.img-scroll-container:hover .right-handle::after{
+  content: \203A;
+}
+
 .home-section-with-images {
   margin-top: 1.25rem;
   margin-bottom: 1.5rem;
   display: flex;
-  width: 100vw;
+  width: 94%;
   flex-direction: column;
   align-items: flex-start;
   background-color: transparent;
@@ -1817,26 +1828,17 @@ a:active {
   }
 }
 
-.img-scroll,
-.first-img-scroll {
+.img-scroll-container {
   display: flex;
-  --tw-scroll-snap-strictness: mandatory;
+  justify-content: center;
 }
 
-.img-scroll > :not([hidden]) ~ :not([hidden]),
-.first-img-scroll > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0.6mm * var(--tw-space-x-reverse));
-  margin-left: calc(0.6mm * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.img-scroll,
-.first-img-scroll {
-  overflow-y: hidden;
+.img-scroll {
+  display: flex;
+  width: 96%;
+  --tw-translate-x: 0%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   overflow-x: scroll;
-  overscroll-behavior-x: contain;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 .img-scroll::-webkit-scrollbar,
@@ -1845,26 +1847,14 @@ body::-webkit-scrollbar,
   display: none;
 }
 
-.img-scroll img,
-.first-img-scroll img {
-  max-height: 100px;
-  width: 100%;
-  scroll-snap-align: start;
-}
-
-@media (min-width: 960px) {
-  .img-scroll img,
-.first-img-scroll img {
-    max-height: 9rem;
-  }
-}
-
-@media (min-width: 2400px) {
-  .img-scroll img,
-.first-img-scroll img {
-    height: 18rem;
-    width: 30rem;
-  }
+.img-scroll > img,
+.first-img-scroll > img {
+  aspect-ratio: 16/9;
+  width: 17%;
+  max-width: 17%;
+  border-radius: 0.125rem;
+  padding-left: 0.06rem;
+  padding-right: 0.06rem;
 }
 
 .nav-black {
@@ -1877,7 +1867,7 @@ body::-webkit-scrollbar,
   transition: transform 450ms;
   transform: scale(1.01);
   display: flex;
-  gap: 0.9mm;
+  padding : 0 0.05rem;
 };
 
 .black{
@@ -1979,6 +1969,10 @@ body::-webkit-scrollbar,
 }
 
 @media (min-width: 800px) {
+  .\38 30\:ml-32 {
+    margin-left: 8rem;
+  }
+
   .\38 30\:flex {
     display: flex;
   }
@@ -2084,36 +2078,8 @@ body::-webkit-scrollbar,
 }
 
 @media (min-width: 1020px) {
-  .lg\:top-0 {
-    top: 0px;
-  }
-
-  .lg\:col-span-2 {
-    grid-column: span 2 / span 2;
-  }
-
-  .lg\:col-span-1 {
-    grid-column: span 1 / span 1;
-  }
-
-  .lg\:col-start-4 {
-    grid-column-start: 4;
-  }
-
-  .lg\:col-start-2 {
-    grid-column-start: 2;
-  }
-
-  .lg\:col-start-5 {
-    grid-column-start: 5;
-  }
-
   .lg\:-ml-8 {
     margin-left: -2rem;
-  }
-
-  .lg\:ml-8 {
-    margin-left: 2rem;
   }
 
   .lg\:mb-3 {
@@ -2122,10 +2088,6 @@ body::-webkit-scrollbar,
 
   .lg\:flex {
     display: flex;
-  }
-
-  .lg\:grid {
-    display: grid;
   }
 
   .lg\:hidden {
@@ -2152,24 +2114,6 @@ body::-webkit-scrollbar,
     width: 100%;
   }
 
-  .lg\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .lg\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .lg\:justify-between {
-    justify-content: space-between;
-  }
-
-  .lg\:space-x-0 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(0px * var(--tw-space-x-reverse));
-    margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
-  }
-
   .lg\:px-12 {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -2194,27 +2138,12 @@ body::-webkit-scrollbar,
     padding-left: 3rem;
   }
 
-  .lg\:pl-8 {
-    padding-left: 2rem;
+  .lg\:text-\[0\.7rem\] {
+    font-size: 0.7rem;
   }
 
   .lg\:text-\[1\.125rem\] {
     font-size: 1.125rem;
-  }
-
-  .lg\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
-  .lg\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
-  .lg\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
   }
 }
 
@@ -2239,11 +2168,6 @@ body::-webkit-scrollbar,
   .xl\:px-32 {
     padding-left: 8rem;
     padding-right: 8rem;
-  }
-
-  .xl\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 }
 

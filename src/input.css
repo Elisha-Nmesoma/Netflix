@@ -100,24 +100,44 @@ transition: all 0.5s;
 .navs img{
   @apply cursor-pointer;
 }
+.handle{
+  @apply w-2 bg-dim z-10 my-1 ;
+};
+.handle:hover{
+@apply bg-dim text-sm;
+};
+.right-handle{
+  @apply rounded rounded-tl-none rounded-bl-none;
+};
+.left-handle{
+  @apply rounded rounded-tr-none rounded-br-none;
+};
+.img-scroll-container:hover .left-handle::after{
+  content: \2039;
+};
+.img-scroll-container:hover .right-handle::after{
+  content: \203A;
+}
 .home-section-with-images{
-  @apply mt-5 mb-6 bg-transparent py-0 flex flex-col px-0 w-screen items-start;
+  @apply w-[94%] mt-5 mb-6 bg-transparent py-0 flex flex-col px-0 items-start;
 }
 .home-section-with-images h4{
-  @apply  font-medium text-xs md:text-base mb-1.5;
+  @apply font-medium text-xs md:text-base mb-1.5 ;
 };
-.img-scroll,
-.first-img-scroll{
-  @apply  flex space-x-[0.6mm]  overflow-y-hidden overflow-x-scroll  overscroll-x-contain object-cover snap-mandatory ;
+.img-scroll-container{
+  @apply flex justify-center ; 
+};
+.img-scroll{
+  @apply flex overflow-x-scroll w-[96%] translate-x-[0%] ;
 };
 .img-scroll::-webkit-scrollbar,
 body::-webkit-scrollbar,
 .first-img-scroll::-webkit-scrollbar{
   @apply hidden;
 };
-.img-scroll img,
-.first-img-scroll img{
-  @apply  w-full 4xl:w-[30rem] 4xl:h-72 max-h-[100px] md:max-h-36 snap-start;
+.img-scroll > img,
+.first-img-scroll > img{
+  @apply max-w-[17%] w-[17%] aspect-[16/9] rounded-sm px-[0.06rem];
 };
 .nav-black{
   @apply bg-black;
@@ -127,7 +147,8 @@ body::-webkit-scrollbar,
  transition: transform 450ms;
  transform: scale(1.01);
  display: flex;
- gap: 0.9mm;
+ padding : 0 0.05rem;
+
 };
 .black{
   margin-top: -2rem;
